@@ -1,0 +1,200 @@
+<html>
+	<head>
+		
+		<script>
+			function disp1(data1)
+			{
+				document.getElementById("d1").innerHTML=data1;
+			}
+			function disp2(data2)
+			{
+				document.getElementById("d2").innerHTML=data2;
+			}
+			function disp3(data3)
+			{
+				document.getElementById("d3").innerHTML=data3;
+			}
+			function disp4(data4)
+			{
+				document.getElementById("d4").innerHTML=data4;
+			}
+			function dispd(date)
+			{
+				document.getElementById("d").innerHTML=date;
+			}
+			function disp5(data5)
+			{
+				document.getElementById("d5").innerHTML=data5;
+			}
+			function dispg(gen)
+			{
+				document.getElementById("g").innerHTML=gen;
+			}
+			function dispm(maj)
+			{
+				document.getElementById("m").innerHTML=maj;
+			}
+			function dispv(virtual)
+			{
+				document.getElementById("vg").innerHTML=virtual;
+			}
+			function dispc(crik)
+			{
+				document.getElementById("c").innerHTML=crik;
+			}
+			function dispcol(color)
+			{
+				document.getElementById("col").innerHTML=color;
+			}
+			function dispcn(country){
+				document.getElementById("cn").innerHTML=country;
+				var us=new Array("Illinois","Pensylvania","Texas");
+				var pakistan=new Array("Islamabad","Peshawar","Karachi");
+				var bangladesh=new Array("Dhaka","Khulha","Chittagong");
+				var ind=new Array("Andhra Pradesh","Telangana","Tamil Nadhu");
+				
+				if(country == "India")
+				{
+					document.getElementById("state").options.length=1;
+					for(i=0;i<ind.length;i++)
+					{
+						addOption(document.getElementById("state"),ind[i],ind[i]);
+					}
+				}
+				if(country == "USA")
+				{
+					document.getElementById("state").options.length=1;
+					for(i=0;i<us.length;i++)
+					{
+						addOption(document.getElementById("state"),us[i],us[i]);
+					}
+				}
+				if(country == "Pakistan")
+				{
+					document.getElementById("state").options.length=1;
+					for(i=0;i<pakistan.length;i++)
+					{
+						addOption(document.getElementById("state"),pakistan[i],pakistan[i]);
+					}
+				}
+				if(country == "Bangladesh")
+				{
+					document.getElementById("state").options.length=1;
+					for(i=0;i<bangladesh.length;i++)
+					{
+						addOption(document.getElementById("state"),bangladesh[i],bangladesh[i]);
+					}
+				}
+				
+				}	
+			function addOption(select,text1,value1)
+			{
+				var obj=document.createElement("option");
+				obj.text=text1;
+				obj.value=value1;
+				select.options.add(obj);
+			}
+			function dispst(datast){
+				document.getElementById("st").innerHTML=datast;
+				
+				}
+		</script>
+		
+		
+	</head>
+
+
+<body>
+<fieldset>
+	<legend>Student Application Form </legend>
+	<form action="" method="post">
+	<table>	
+		<tr>
+		<td>Fname:</td><td><input id="data1" type="text" onkeyup="disp1(this.value)"></td>
+		<td><span id="d1"></span></td>
+		<tr>
+			<td>Lname:</td><td><input id="data2" type="text" onkeyup="disp2(this.value)"></td>
+			<td><span id="d2"></span></td>
+		<tr>
+		<tr>
+			<td>Student ID:</td><td><input id="data3" type="text" onkeyup="disp3(this.value)"></td>
+			<td><span id="d3"></span></td>
+		<tr>
+		<tr>
+			<td>Email:</td><td><input id="data4" type="text" onkeyup="disp4(this.value)"></td>
+			<td><span id="d4"></span></td>
+		<tr>
+		<tr>
+			<td>Date of Birth:</td><td><input type="date" onchange="dispd(this.value)"></td>
+			<td><span id="d"></span></td>
+		</tr>
+		<tr><td>Contact number:</td><td><input id="data5" type="text" onkeyup="disp5(this.value)"></td>
+		<td><span id="d5"></span></td>
+		</tr>
+		<tr>
+			<td>Major:</td>
+			<td>
+				<select multiple id="maj" onclick="dispm(this.value)">
+				
+				<option>UI</option>
+				<option>BI</option>
+				<option>Dev Ops</option>
+				<option>Sharepoint</option>
+				</select>
+				</td>
+				<td><span id="m"></span></td>
+		</tr>
+		<tr>
+			<td>Gender</td>
+				<td>
+				Male <input type="radio" id="gen" name="gender" value="Male" onclick="dispg(this.value)">
+				Female <input type="radio" id="gen" name="gender" value="Female" onclick="dispg(this.value)">
+				</td>
+				<td><span id="g"></span></td>
+		</tr>
+					<tr>
+						<td>Hobbies</td>
+						<td>
+						Cricket <input type="checkbox" id="crik" name="crik" value="crikect" onchange="dispc(this.value)">
+						Virtual Games <input type="checkbox" id="virtual" name="Virtual Games" value="Virtual" onchange="dispv(this.value)">
+						</td>
+						<td><span id="c"></span></td>
+						<td><span id="vg"></span></td>
+					</tr>
+		<tr>
+					<td>Country:</td>
+					<td>
+						<select id = "country" onchange="dispcn(this.value)">
+							<option>Select Country</option>
+							<option>India</option>
+							<option>USA</option>
+							<option>Bangladesh</option>
+							<option>Pakistan</option>
+						</select>
+						<span id ="cn"></span>
+					</td>	
+				</tr>
+				<tr>
+					<td>State: </td>
+					<td>
+						<select id = "state" onchange ="dispst(this.value)">
+							<option>Select State</option>
+						</select>
+						<span id ="st"></span>
+					</td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="submit" ><td>
+				</tr>
+				<tr>
+					<td>Color:</td><td><input type="color" id="color" onchange ="dispcol(this.value)"></td>
+					<td><span id="col"></span></td>
+				</tr>
+				
+	</table>
+	</form>
+	</fieldset>
+</body>
+
+
+</html>

@@ -1,0 +1,48 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+
+<script>
+	//if(window.XMLHttpRequest)
+	var ind = new XMLHttpRequest();
+	/*}
+	else
+	{
+	ind = new ActiveXObject("Microsoft.XMLHTTP");
+	}*/
+	ind.onreadystatechange=function(){
+	
+		if(ind.readyState==4 && ind.status==200){
+		
+			//alert("sdc");
+			var data=JSON.parse(ind.responseText);
+			//alert("asdc");
+			//document.write(data[0].name+" "+data[1].name+"");
+			document.write("<table align='center' border='3' cellpadding='13' cellspacing='2'>");
+			document.write("<tr><td>ID</td><td>name</td><td>username</td><td>email</td><td>Address</td></tr>");
+			for(i=0;i<data.length;i++)
+			{
+			document.write("<tr><td>"+data[i].id+"</td><td>"+data[i].name+"</td><td>"+data[i].username+"</td><td>"
+			+data[i].email+"</td><td>"+data[i].address.street+" ,"
+			+data[i].address.suite+" ,"+data[i].address.city+" ,"
+			+data[i].address.zipcode+" ,"+data[i].address.geo.lat+" ,"+data[i].address.geo.lng+"</td></tr>");
+			}
+			document.write("</table>");
+		}
+	}
+	ind.open("GET", "https://jsonplaceholder.typicode.com/users", true);
+	ind.send();
+ 
+</script>
+
+
+</body>
+
+
+
+</html>

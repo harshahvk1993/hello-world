@@ -1,0 +1,95 @@
+<html>
+	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	</head>
+	
+	<body>
+		<form action="" method="post">
+			<fieldset>
+				<legend>Student Application Form </legend>
+				<table ng-app="">
+					<tr>
+					<td>First Name</td><td><input type="text" name="First Name" ng-model ="fname"></input></td>
+					<td><span ng-bind="fname"></span></td>
+				</tr>
+				<tr>
+					<td>Last Name</td><td><input type="text" name="Last Name" ng-model="lname"></input></td>
+					<td><span  ng-bind="lname"></span></td>
+				</tr>
+				<tr>
+					<td>Student ID</td><td><input type="text" name="student id" ng-model="sid"></input></td>
+					<td><span  ng-bind="sid"></span></td>
+				</tr>
+				<tr>
+					<td>Email</td><td><input type="text" name="email" ng-model="email"></input></td>
+					<td><span ng-bind="email"></span></td>
+				</tr>
+				<tr>
+					<td>Date</td><td><input type="date" name="date" ng-model="date"></input></td>
+					<td><span ng-bind="date"></span></td>
+				</tr>
+				<tr>
+					<td>Contact number</td><td><input type="contact" name="contacat" ng-model="number"></input></td>
+					<td><span  ng-bind="number"></span></td>
+				</tr>
+				<tr>
+					<td>Gender</td>
+					<td>
+						Male<input type="radio" name="gender" value="male" ng-model="gender">
+						Female<input type="radio" name="gender" value="female" ng-model="gender">
+						<span ng-bind="gender"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>Major</td>
+					<td>
+						<select multiple ng-model="major">
+							<option>Select Major</option>
+							<option>UI</option>
+							<option>dev apps</option>
+							<option>tabluea</option>
+							<option>SQL</option>
+						</select>
+						<span  ng-bind="major"></span>
+					</td>
+				</tr>
+				<tr>
+					<td>Hobbies</td>
+					<td>
+						Cricket <input type="checkbox"  name="crik" value="crik" ng-model="hobbies">
+						Virtual <input type="checkbox" name="car" value="virtual" ng-model="hob">
+						<span ng-show="hobbies">Cricket</span>
+						<span ng-show="hob">Virtual</span>
+					</td>
+				</tr>
+				<tr>
+					<td id="">country</td>
+					<td>
+					<select>
+						<option>select country</option>
+						<option>India</option>
+						<option>USA</option>
+						<option>China</option>
+					</select>
+					</td>
+				</tr>
+				<tr>
+					<td>State:</td>
+					<td>
+						<select id = "state">
+							<option>Select State</option>
+						
+						</select>
+						<span ng-show ="state"></span>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>Color:</td><td><input type="color"></td>
+				</tr>
+				</table>
+			</fieldset>
+		</form>
+	</body>
+
+</html>

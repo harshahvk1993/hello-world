@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	</head>
+	
+	
+	
+	<body>
+		<div ng-app="tab" ng-controller="data">
+			<table border="1" cellpadding="10">
+					<tr>
+						<tr><td>ID</td><td>name</td><td>username</td><td>email</td><td>Address</td><td>Phone</td><td>website</td><td>Company</td></tr>
+					
+					</tr>
+				<tr ng-repeat='x in md'>
+					<td>{{x.id}}</td><td>{{x.name}}</td><td>{{x.username}}</td>
+					<td>{{x.email}}</td><td>{{x.address.street}}<br>{{x.address.suite}}<br>
+					{{x.address.city}}<br>{{x.address.zipcode}} <br>{{x.address.geo.lat}}<br>{{x.address.geo.lng}}</td>
+					<td>{{x.phone}}</td><td>{{x.website}}</td><td>{{x.company.name}}<br>{{x.company.catchPhrase}}<br>
+					{{x.company.bs}}</td>
+				</tr>
+			</table>
+		
+		
+		</div>
+		<script>
+				var app= angular.module('tab',[]);
+				app.controller('data',function($scope,$http){
+				$http({
+					method:'GET', url: "xjquery.txt" 
+				
+				}).then(function(res)
+				{
+				$scope.md = res.data;
+				});
+				});
+		</script>
+	</body>
+</html>

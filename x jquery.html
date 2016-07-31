@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+		//alert("1")
+		
+		$("div").show(function(){ 
+		//alert("2")
+		$.ajax({
+		type:"GET",
+		url: "https://jsonplaceholder.typicode.com/users",
+		dataType: 'json',
+		success:function(data){
+		//alert("3");
+			var i;
+			
+			var len = data.length;
+			var tab ="<table>";
+			tab += "<tr><td>ID</td><td>name</td><td>username</td><td>email</td><td>Address</td></tr>";
+			
+			for(i=0;i<len;i++)
+			{
+			
+			tab +="<tr><td>"+data[i].id+"</td><td>"+data[i].name+"</td><td>"+data[i].username+"</td><td>"
+			+data[i].email+"</td><td>"+data[i].address.street+" ,"
+			+data[i].address.suite+" ,"+data[i].address.city+" ,"
+			+data[i].address.zipcode+" ,"+data[i].address.geo.lat+" ,"+data[i].address.geo.lng+"</td>
+			
+			</tr>";
+			}
+			tab +="</table>";
+			$("div").html(tab);
+		}});
+		});
+		});
+	</script>
+	</head>
+	
+	
+	
+	<body>
+		<div></div>
+		
+	</body>
+</html>
